@@ -1,0 +1,41 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"  # Untuk proyek JavaScript/Node.js
+    directory: "/"  # Lokasi package.json
+    schedule:
+      interval: "weekly"  # Perbarui mingguan
+      day: "monday"  # Hari Senin
+      time: "09:00"  # Pukul 09:00 UTC
+    open-pull-requests-limit: 10  # Batas PR terbuka
+    reviewers:
+      - "your-username"  # Ganti dengan username Anda
+    labels:
+      - "dependencies"
+      - "security"
+    ignore:
+      - dependency-name: "*"  # Opsional: abaikan dependensi tertentu
+        update-types: ["version-update:semver-patch"]  # Abaikan patch updates
+
+  - package-ecosystem: "pip"  # Untuk proyek Python
+    directory: "/"  # Lokasi requirements.txt atau pyproject.toml
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    open-pull-requests-limit: 5
+    reviewers:
+      - "your-username"
+    labels:
+      - "dependencies"
+      - "security"
+
+  - package-ecosystem: "maven"  # Untuk proyek Java
+    directory: "/"  # Lokasi pom.xml
+    schedule:
+      interval: "monthly"  # Perbarui bulanan
+    open-pull-requests-limit: 5
+    reviewers:
+      - "your-username"
+    labels:
+      - "dependencies"
+      - "security"
